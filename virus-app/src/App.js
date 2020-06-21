@@ -9,8 +9,21 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Link
 } from "react-router-dom";
-import Subscription from "./components/Subscription";
+
+const Subscription = (props) => {
+    if (!props.user?.id) {
+        return <div>
+            <Link to="/signin" className="d-block w-100">Me connecter</Link>
+            <Link to="/signup" className="d-block w-100 text-center">M'inscrire</Link>
+        </div>
+    }
+    return <div>
+        <p>{props.user.email}</p>,
+        <button className="btn btn-primary" onClick={() => props.loggout()}>Me déconnecter</button>
+    </div>
+}
 
 class App extends React.Component{
 
