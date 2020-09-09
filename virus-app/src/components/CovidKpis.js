@@ -12,14 +12,23 @@ export default (props) => {
         }
     }, { confirmed: 0, recovered: 0, deaths: 0, active: 0 })
 
+    return <table className={'table table-bordered'}>
+        <thead>
+            <tr>
+                <th>Nombre de morts</th>
+                <th>Nombre de Guérisons</th>
+                <th>Nombre d'infections</th>
+                <th>Nombre de nouveaux cas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{totals?.deaths}</td>
+                <td>{totals?.recovered}</td>
+                <td>{totals?.active}</td>
+                <td>{totals?.confirmed}</td>
+            </tr>
+        </tbody>
 
-    return <section>
-        <h2>{props.nbCountries} pays touchés</h2>
-        <ul>
-            <li>Nombre de morts: {totals?.deaths}</li>
-            <li>Nombre de guérisons: {totals?.recovered}</li>
-            <li>Nombre d'infectés: {totals?.active}</li>
-            <li>Nombre de nouveaux cas: {totals?.confirmed}</li>
-        </ul>
-    </section>
+    </table>
 }

@@ -5,7 +5,7 @@ class Api {
     constructor() {
         this.axios = axios;
         const token = localStorage.getItem('token-virus')
-        if(token){
+        if (token) {
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
         }
     }
@@ -38,7 +38,7 @@ class Api {
             })
     }
 
-    getDailyByCountry(query){
+    getDailyByCountry(query) {
         return this.axios.get('/api/data/daily-by-country' + query)
             .then(({data}) => data)
             .catch((e) => {
@@ -46,6 +46,20 @@ class Api {
             })
     }
 
+    changePassword(data) {
+        return this.axios.put('/api/users/password', data)
+            .then(() => true, () => false)
+    }
+
+    getLatestAllCountries(type) {
+        return this.axios.get('/api/data/latest-all-countries?type=' + type)
+            .then((d) => d.data, () => false)
+    }
+
+    sendForgotPassword(params) {
+        return this.axios.post('/api/users/forgot-password', params)
+            .then(() => true, () => false)
+    }
 }
 
 export default new Api()

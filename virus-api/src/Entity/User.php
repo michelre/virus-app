@@ -27,6 +27,11 @@ class User implements \JsonSerializable
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $accountConfirmed = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,5 +67,23 @@ class User implements \JsonSerializable
             'id' => $this->id,
             'email' => $this->email
         ];
+    }
+
+    /**
+     * @param mixed $accountConfirmed
+     * @return User
+     */
+    public function setAccountConfirmed($accountConfirmed)
+    {
+        $this->accountConfirmed = $accountConfirmed;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAccountConfirmed()
+    {
+        return $this->accountConfirmed;
     }
 }

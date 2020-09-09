@@ -33,3 +33,20 @@ cd virus-app
 npm install
 npm start
 ```
+
+## Services externes
+On utilise un service d'envoi de mail qui s'appelle mailjet. 
+Il faut créer un compte et se rendre dans "Account Settings > Master API & Sub key management"
+
+![https://i.imgur.com/NOVkLLA.png](https://i.imgur.com/NOVkLLA.png)
+
+
+Il faut récupérer les clés de connexion pour les renseigner dans le fichier .env.local
+
+```
+MAILJET_KEY=
+MAILJET_SECRET=
+SENDER_MAIL=
+```
+
+![https://imgur.com/Kbq4CUB.png](https://imgur.com/Kbq4CUB.png)

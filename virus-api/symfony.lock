@@ -90,6 +90,9 @@
     "guzzlehttp/psr7": {
         "version": "1.6.1"
     },
+    "mailjet/mailjet-apiv3-php": {
+        "version": "v1.4.1"
+    },
     "nikic/php-parser": {
         "version": "v4.5.0"
     },

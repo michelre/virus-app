@@ -24,7 +24,7 @@ export default (props) => {
             })
     }
 
-    return <section className="connexion">
+    return <section className={'container w-50'}>
         <h2>Me connecter</h2>
         <form onSubmit={(e) => signin(e)}>
             <div className="form-group">
@@ -53,6 +53,9 @@ export default (props) => {
                     />
                 </div>
             </div>
+            <small className={'w-100'}>
+                <a href="/forgot-password" className={'w-100 d-block text-right'}>Mot de passe oublié</a>
+            </small>
             <p className="text-danger">{error}</p>
 
             <button className="btn btn-primary" type="submit">Me connecter</button>

@@ -3,9 +3,7 @@
 }
 
 .header {
-  border: 1px solid black;
-  padding: 20px;
-  display: flex;
+  border-bottom: 1px solid black;
 }
 
 .action {
@@ -15,7 +13,7 @@
   width: calc(100% - 100px);
 }
 
-.action a {
+.action a:not(.link) {
   text-align: left;
   padding: 10px;
   margin: 10px 0;
@@ -24,7 +22,7 @@
 }
 
 .App-logo {
-  height: 100px;
+  height: 60px;
   pointer-events: none;
 }
 
@@ -53,19 +51,19 @@ ul {
   text-align: left;
 }
 
-.connexion {
-  margin: auto;
-  max-width: 500px;
-}
-
 .connexion h2 {
   text-align: center;
 }
 
 .covid-main {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .covid-main .covid-stats {
-  width: 70%;
+  width: 100%;
+}
+
+.covid-kpis {
+  margin: auto;
 }
