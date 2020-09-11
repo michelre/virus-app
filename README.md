@@ -50,3 +50,11 @@ SENDER_MAIL=
 ```
 
 ![https://imgur.com/Kbq4CUB.png](https://imgur.com/Kbq4CUB.png)
+
+## Migration de base de données
+
+Il faut jouer le script de migration en executant la commande de doctrine
+
+```
+./bin/console doctrine:migrations:migrate
+```
