@@ -8,7 +8,7 @@ const CovidClassificationLine = ({country, value}) => <tr>
     <td>{value}</td>
 </tr>
 
-const CovidClassificationContent = ({latest, loading}) => {
+const CovidClassificationContent = ({latest, loading, user}) => {
     if (loading) {
         return <img src={logoVirus} className="App-logo m-auto d-block" alt="Logo"/>
     }
@@ -49,7 +49,7 @@ const CovidClassificationFilter = ({onChange}) => {
 const CovidClassification = ({user}) => {
 
     const [latest, setLatest] = useState(null);
-    const [type, setType] = useState('deaths')
+    const [type] = useState('deaths')
     const [loading, setLoading] = useState(false);
 
     const onChange = async (v) => {
@@ -66,17 +66,16 @@ const CovidClassification = ({user}) => {
             setLatest(data)
             setLoading(false)
         })
-    }, [])
+    }, [type])
 
     if (!user) {
         return <div className={'container'}>
-            <Tabs/>
             <p>Vous devez être connecté pour pouvoir accéder aux chiffres</p>
         </div>
     }
 
     return <div className={'container'}>
-        {/*<Tabs />*/}
+        {<Tabs />}
         {<CovidClassificationFilter onChange={onChange}/>}
         {<CovidClassificationContent latest={latest} loading={loading}/>}
     </div>

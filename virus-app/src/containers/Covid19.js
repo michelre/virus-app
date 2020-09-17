@@ -2,20 +2,13 @@ import React, {useEffect, useState} from 'react';
 import api from '../Api'
 import CovidKpis from "../components/CovidKpis";
 import CovidChart from "../components/CovidChart";
-import Tabs from '../components/Tabs';
 import logoVirus from "../logo-virus.svg";
-import dayjs from 'dayjs'
+import Tabs from "../components/Tabs";
 
 const Covid19Content = ({loading, countryCode, countries, stats, user, changeCountry}) => {
 
     if (loading) {
         return <img src={logoVirus} className="App-logo m-auto d-block" alt="Logo"/>
-    }
-
-    if (!user) {
-        return <p>
-            Vous devez être connecté pour pouvoir accéder aux chiffres
-        </p>
     }
 
     return <div>
@@ -49,7 +42,7 @@ const Covid19 = ({user}) => {
     const [countries, setCountries] = useState([]);
     const [stats, setStats] = useState({});
     const [countryCode, setCountryCode] = useState('fr');
-    const [date] = useState(dayjs().subtract(3, 'month').format('YYYY-MM-DD'));
+    const [date] = useState('2020-06-27');
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -63,7 +56,7 @@ const Covid19 = ({user}) => {
             setStats(stats)
             setLoading(false);
         }, 2000)
-    }, [])
+    }, [countryCode, date])
 
     const changeCountry = async (e) => {
         setLoading(true);
@@ -74,8 +67,14 @@ const Covid19 = ({user}) => {
         setLoading(false);
     }
 
+    if (!user) {
+        return <p>
+            Vous devez être connecté pour pouvoir accéder aux chiffres
+        </p>
+    }
+
     return <section className="container">
-        {/*<Tabs />*/}
+        <Tabs />
         <Covid19Content
             countries={countries}
             countryCode={countryCode}
