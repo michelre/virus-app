@@ -26,6 +26,14 @@ cp .env .env.local
 ./bin/console doctrine:migrations:migrate
 ```
 
+* Démarrer le serveur web:
+
+```
+symfony serve
+```
+
+Le serveur doit tourner sur http://localhost:8000
+
 ## Frontend
 
 ```
